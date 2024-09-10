@@ -11,7 +11,7 @@ export const accountAddress = () => {
 }
 
 export function getTronWeb() {
-    // Obtain the tronweb object injected by tronLink 
+    // Obtain the tronWeb object injected by tronLink 
     var obj = setInterval(async () => {
         if (window.tronWeb && window.tronWeb.defaultAddress.base58) {
             clearInterval(obj)
@@ -21,11 +21,15 @@ export function getTronWeb() {
 }
 
 export async function setLibraryContract() {
+    if (!window.tronWeb) return;
+
     // TODO: obtain contract Object
     bookRentContract = await window.tronWeb.contract().at(libraryContractAddress);
 }
 
 export async function postBookInfo(name, description, price) {
+    if (!bookRentContract) return;
+
     // TODO: call addBook func of library contract
     const result = await bookRentContract.addBook(name, description, price).send({
         feeLimit: 100_000_000,
@@ -37,6 +41,8 @@ export async function postBookInfo(name, description, price) {
 }
 
 export async function borrowBook(spaceId, checkInDate, checkOutDate, totalPrice) {
+    if (!bookRentContract) return;
+
     // TODO: call borrowBook func of library contract
     const result = await bookRentContract.borrowBook(spaceId, checkInDate, checkOutDate).send({
         feeLimit: 100_000_000,
@@ -48,6 +54,8 @@ export async function borrowBook(spaceId, checkInDate, checkOutDate, totalPrice)
 }
 
 export async function fetchAllBooks() {
+    if (!bookRentContract) return;
+    
     // TODO: call bookId func of library contract to obtain total books number
     // iterate till book Id
     // push each object to books array

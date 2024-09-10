@@ -12,48 +12,48 @@ export const BookForm = () => {
 
     const postAd = async () => {
         // convert price from TRX to SUN
-        await postBookInfo(title, description, tronWeb.toSun(price));
+        await postBookInfo(title, description, window.tronWeb.toSun(price));
     };
 
     return (
         <div>
-            <div class="modal-mask">
-                <div class="modal-wrapper">
-                    <div class="modal-container">
-                        <div class="modal-header">
+            <div className="modal-mask">
+                <div className="modal-wrapper">
+                    <div className="modal-container">
+                        <div className="modal-header">
                             <slot name="header">default header</slot>
                         </div>
 
-                        <div class="modal-body">
+                        <div className="modal-body">
                             <slot name="body">
-                                <div class="form-group">
+                                <div className="form-group">
                                     <label for="title">Book Name</label>
                                     <input 
                                         type="text"
-                                        class="form-control"
+                                        className="form-control"
                                         value={title}
                                         placeholder="Enter Book Name"
                                     />
                                 </div>
-                                <div class="form-group">
+                                <div className="form-group">
                                     <label for="description">Description</label>
                                     <input
                                         type="text"
-                                        class="form-control"
+                                        className="form-control"
                                         value={description}
                                         placeholder="Description"
                                     />
                                 </div>
-                                <div class="form-group">
+                                <div className="form-group">
                                     <label for="price">Price</label>
                                     <input
                                         type="text"
-                                        class="form-control"
+                                        className="form-control"
                                         value={price}
                                         placeholder="Unit: TRX"
                                     />
                                 </div>
-                                <button onClick={postAd} class="btn btn-primary float-right">Submit</button>
+                                <button onClick={postAd} className="btn btn-primary float-right">Submit</button>
                             </slot>
                         </div>
                     </div>

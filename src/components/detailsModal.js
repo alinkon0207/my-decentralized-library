@@ -36,22 +36,22 @@ export const DetailsModal = ({bookData}) => {
     
     return (
         <div>
-            <div class="modal-mask">
-                <div class="modal-wrapper">
-                    <div class="modal-container">
-                        <div class="modal-header">
+            <div className="modal-mask">
+                <div className="modal-wrapper">
+                    <div className="modal-container">
+                        <div className="modal-header">
                             <h3>Book Details</h3>
                         </div>
-                        <div class="modal-body">
+                        <div className="modal-body">
                             <slot name="body">
                                 <h3>Book Name: {bookData.name}</h3>
                                 <h3>Price: {bookData.price} TRX/Day</h3>
                                 <p>Description: {bookData.description}</p>
-                                <div class="row ml-4 p-2">
+                                <div className="row ml-4 p-2">
                                     <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
                                     <DatePicker selected={endDate} onChagne={(date) => setEndDate(date)} />
                                 </div>
-                                <button onClick={book} class="mr-5 mt-3">
+                                <button onClick={book} className="mr-5 mt-3">
                                     <span>Lend Now</span>
                                 </button>
                             </slot>

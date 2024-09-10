@@ -1,8 +1,9 @@
 
 
-import BookForm from "./bookForm";
+import { useState } from "react";
+import { BookForm } from "./bookForm";
 import { accountAddress } from "../plugins/utils";
-import { initWalletConnect } from "../plugins/WalletConnect";
+import { initWalletConnect } from "../plugins/walletConnect";
 
 
 export const Navbar = () => {
@@ -19,15 +20,15 @@ export const Navbar = () => {
 
     return (
         <div>
-            <nav class="navbar navbar-expand-lg navbar-light flex-top">
-                <ul class="navbar-nav justify-content-end ml-auto">
-                    <li class="nav-item">
-                        <button onClick={toggle} class="mr-5 mt-3">
+            <div className="navbar navbar-expand-lg navbar-light flex-top">
+                <ul className="navbar-nav justify-content-end ml-auto">
+                    <li className="nav-item">
+                        <button onClick={toggle} className="mr-5 mt-3">
                             <span>Rent Your Books</span>
                         </button>
                     </li>
                 </ul>
-            </nav>
+            </div>
 
             {showModal && (
                 <BookForm >

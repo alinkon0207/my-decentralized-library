@@ -33,13 +33,13 @@ function App() {
   }
 
   return (
-    <div ckass="container m-5">
+    <div className="container m-5">
       <div>
-        <h1 class="title">Decentralized Book Rental</h1>
-        <div class="row">
-          {posts.map((id, post) => (
-            <div class="m-3">
-              <Card bookObject={post} key={post.id} />
+        <h1 className="title">Decentralized Book Rental</h1>
+        <div className="row">
+          {posts.map((post, id) => (
+            <div key={id} className="m-3">
+              <Card bookObject={post} />
             </div>))}
         </div>
       </div>
